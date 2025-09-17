@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - The Word Manifest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --purple: #6A0DAD;
+            --pitch: #1A1A1A;
+            --light: #F8F8F8;
+            --dark: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--pitch) 0%, var(--purple) 100%);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo i {
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: transparent;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: var(--pitch);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        /* Donate Section */
+        .donate {
+            padding: 180px 0 80px;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(106, 13, 173, 0.8)), url('https://images.unsplash.com/photo-1533164296898-49953e51b009?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .donate h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .donate p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Payment Methods Section */
+        .payment-methods {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .payment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .payment-card {
+            background: #f9f7ff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            text-align: center;
+            position: relative;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .payment-card i {
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+
+        .payment-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--pitch);
+        }
+
+        .payment-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .payment-details {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+            display: none;
+        }
+
+        .payment-details.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .payment-details h4 {
+            color: var(--purple);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .payment-details p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .payment-details .copy-btn {
+            background: var(--gold);
+            color: var(--pitch);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        .payment-details .copy-btn:hover {
+            background: var(--purple);
+            color: white;
+        }
+
+        .payment-details .cancel-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .payment-details .cancel-btn:hover {
+            background: #c0392b;
+        }
+
+        .donate-btn {
+            background: var(--purple);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .donate-btn:hover {
+            background: var(--gold);
+            color: var(--pitch);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--pitch);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--pitch);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--pitch);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: var(--pitch);
+            z-index: 1002;
+            padding: 80px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-nav-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+
+        .mobile-nav-link i {
+            margin-right: 15px;
+            color: var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .donate h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .back-btn {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .donate {
+                padding: 160px 0 80px;
+            }
+            
+            .donate h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .payment-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-card {
+                padding: 20px;
+            }
+            
+            .payment-card i {
+                font-size: 2.5rem;
+            }
+            
+            .payment-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .donate {
+                padding: 140px 0 80px;
+            }
+            
+            .donate h1 {
+                font-size: 2rem;
+            }
+            
+            .payment-details {
+                padding: 15px;
+            }
+            
+            .payment-details .copy-btn,
+            .payment-details .cancel-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .mobile-nav {
+                width: 90%;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="The Word Manifest Logo">
+                <span>The Word Manifest</span>
+            </div>
+            <nav>
+                <a href="index.html" class="back-btn">Back to Home</a>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <h3 class="mobile-nav-title">Menu</h3>
+        <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        <a href="#paypal" class="mobile-nav-link">
+            <i class="fab fa-paypal"></i> PayPal Donation
+        </a>
+        <a href="#mpesa" class="mobile-nav-link">
+            <i class="fas fa-mobile-alt"></i> M-Pesa Donation
+        </a>
+        <a href="#bank" class="mobile-nav-link">
+            <i class="fas fa-university"></i> Bank Transfer
+        </a>
+    </div>
+
+    <!-- Donate Section -->
+    <section class="donate">
+        <div class="container">
+            <h1>Support Our Mission</h1>
+            <p>Your generous donation helps us spread the transformative message of salvation and pursue souls for the Kingdom of God.</p>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Payment Method</h2>
+                <p>We offer several convenient ways for you to support our ministry</p>
+            </div>
+            <div class="payment-cards">
+                <div class="payment-card" id="paypal">
+                    <i class="fab fa-paypal"></i>
+                    <h3>PayPal</h3>
+                    <p>Donate securely through PayPal using your credit card or PayPal account.</p>
+                    <a href="https://www.paypal.com/donate" target="_blank" class="donate-btn">Donate with PayPal</a>
+                </div>
+                <div class="payment-card" id="mpesa">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>M-Pesa</h3>
+                    <p>Donate via M-Pesa, Kenya's most popular mobile money service.</p>
+                    <button class="donate-btn view-details" data-target="mpesa-details">View M-Pesa Details</button>
+                    <div class="payment-details" id="mpesa-details">
+                        <h4>M-Pesa Details</h4>
+                        <p><strong>Paybill:</strong> 123456</p>
+                        <p><strong>Account Number:</strong> DONATE</p>
+                        <button class="copy-btn" onclick="copyToClipboard('Paybill: 123456, Account: DONATE')">Copy Details</button>
+                        <button class="cancel-btn" onclick="hideDetails('mpesa-details')">Cancel</button>
+                    </div>
+                </div>
+                <div class="payment-card" id="bank">
+                    <i class="fas fa-university"></i>
+                    <h3>Bank Transfer</h3>
+                    <p>Make a direct deposit to our bank account.</p>
+                    <button class="donate-btn view-details" data-target="bank-details">View Bank Details</button>
+                    <div class="payment-details" id="bank-details">
+                        <h4>Bank Details</h4>
+                        <p><strong>Bank:</strong> Kenya Commercial Bank</p>
+                        <p><strong>Account Name:</strong> The Word Manifest</p>
+                        <p><strong>Account Number:</strong> 0111 229940</p>
+                        <p><strong>Branch:</strong> Nairobi CBD</p>
+                        <button class="copy-btn" onclick="copyToClipboard('Bank: Kenya Commercial Bank, Account Name: The Word Manifest, Account Number: 1234567890, Branch: Nairobi CBD')">Copy Details</button>
+                        <button class="cancel-btn" onclick="hideDetails('bank-details')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Word Manifest</h3>
+                    <p>Spreading the transformative message of salvation and pursuing souls for the Kingdom of God.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#tenets">Fundamental Tenets</a></li>
+                        <li><a href="index.html#outreach">Outreach Endeavors</a></li>
+                        <li><a href="index.html#fellowship">Fellowship Structure</a></li>
+                        <li><a href="index.html#schedule">Service Schedule</a></li>
+                        <li><a href="index.html#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Sermon Archives</a></li>
+                        <li><a href="#">Bible Study Materials</a></li>
+                        <li><a href="#">Prayer Requests</a></li>
+                        <li><a href="#">Testimonies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> 0111 229940</li>
+                        <li><i class="fas fa-envelope"></i> thewordmanifst@gmail.com</li>
+                        <li><i class="fas fa-video"></i> <a href="https://meet.google.com/ypf-bvmf-wrg" target="_blank" style="color: #ccc;">Online Meeting</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 The Word Manifest Fellowship. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-nav').classList.add('active');
+        });
+
+        // Close mobile navigation
+        document.querySelector('.mobile-nav-close').addEventListener('click', function() {
+            document.querySelector('.mobile-nav').classList.remove('active');
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.mobile-nav').classList.remove('active');
+            });
+        });
+
+        // View payment details
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Hide payment details
+        function hideDetails(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Show success message
+            const originalText = event.target.textContent;
+            event.target.textContent = 'Copied!';
+            setTimeout(() => {
+                event.target.textContent = originalText;
+            }, 2000);
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

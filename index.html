@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Word Manifest - Spiritual Fellowship</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --purple: #6A0DAD;
+            --pitch: #1A1A1A;
+            --light: #F8F8F8;
+            --dark: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--pitch) 0%, var(--purple) 100%);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        .donate-btn {
+            background: var(--gold);
+            color: var(--pitch);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .donate-btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: var(--pitch);
+            z-index: 1002;
+            padding: 80px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-nav-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+
+        .mobile-nav-link i {
+            margin-right: 15px;
+            color: var(--gold);
+            width: 20px;
+            text-align: center;
+        }
+
+        .mobile-donate-btn {
+            background: var(--gold);
+            color: var(--pitch);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .mobile-donate-btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(106, 13, 173, 0.7)), url('https://images.unsplash.com/photo-1506784926709-22f1ec395907?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            background-attachment: fixed;
+            transition: opacity 0.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--pitch);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--pitch);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* Tenets Section */
+        .tenets {
+            background-color: white;
+        }
+
+        .tenets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tenet-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--gold);
+        }
+
+        .tenet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .tenet-card i {
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+
+        .tenet-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--pitch);
+        }
+
+        /* Values Section */
+        .values {
+            background-color: #f9f7ff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            box-shadow: 0 8px 25px rgba(106, 13, 173, 0.15);
+        }
+
+        .value-card h3 {
+            color: var(--purple);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .value-card h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .scripture {
+            font-style: italic;
+            color: #888;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Outreach Section */
+        .outreach {
+            background: white;
+        }
+
+        .outreach-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .outreach-card {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--pitch) 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .outreach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+        }
+
+        .outreach-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .outreach-card p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .outreach-card .scripture {
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* Fellowship Section */
+        .fellowship {
+            background-color: #f9f7ff;
+        }
+
+        .fellowship-structure {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .fellowship-item {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--gold);
+        }
+
+        .fellowship-item h3 {
+            color: var(--purple);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .fellowship-item ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fellowship-item ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .fellowship-item ul li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .fellowship-item ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Schedule Section */
+        .schedule {
+            background: white;
+        }
+
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .schedule-tab.active {
+            color: var(--purple);
+        }
+
+        .schedule-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .schedule-content {
+            display: none;
+        }
+
+        .schedule-content.active {
+            display: block;
+        }
+
+        .schedule-item {
+            display: flex;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #f9f7ff;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .schedule-item:hover {
+            transform: translateX(10px);
+        }
+
+        .schedule-time {
+            min-width: 120px;
+            font-weight: 700;
+            color: var(--purple);
+            font-size: 1.1rem;
+        }
+
+        .schedule-details {
+            flex: 1;
+        }
+
+        .schedule-details h4 {
+            margin-bottom: 5px;
+            color: var(--pitch);
+        }
+
+        .schedule-details p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Community Section */
+        .community {
+            background-color: #f9f7ff;
+        }
+
+        .community-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .community-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .community-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .community-card-content {
+            padding: 25px;
+        }
+
+        .community-card h3 {
+            color: var(--purple);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .community-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .community-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .community-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--purple);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .community-links a:hover {
+            background: var(--gold);
+            color: var(--pitch);
+            transform: translateY(-3px);
+        }
+
+        /* Media Gallery Section */
+        .media {
+            background: white;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .media-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .media-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .media-content {
+            padding: 20px;
+        }
+
+        .media-content h3 {
+            color: var(--purple);
+            margin-bottom: 10px;
+        }
+
+        .media-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Join Community Section */
+        .join-community {
+            background: linear-gradient(135deg, var(--pitch) 0%, var(--purple) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .join-community h2 {
+            color: var(--gold);
+        }
+
+        .join-community-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .join-community-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .join-community-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .join-community-card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .join-community-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .join-community-card p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .join-community-card .btn {
+            background: var(--gold);
+            color: var(--pitch);
+        }
+
+        .join-community-card .btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #f9f7ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            color: var(--purple);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-item p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: #f9f7ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            color: var(--purple);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group button {
+            background: var(--purple);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-group button:hover {
+            background: var(--gold);
+            color: var(--pitch);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--pitch);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--pitch);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--pitch);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .donate-btn {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .outreach-card {
+                padding: 30px 20px;
+            }
+            
+            .outreach-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .mobile-nav {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="The Word Manifest Logo" class="logo-img">
+                <span>The Word Manifest</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tenets">Tenets</a></li>
+                    <li><a href="#outreach">Outreach</a></li>
+                    <li><a href="#fellowship">Fellowship</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#media">Media</a></li>
+                </ul>
+                <a href="donate.html" class="donate-btn">Donate</a>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <h3 class="mobile-nav-title">Menu</h3>
+        <a href="#home" class="mobile-nav-link">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="#tenets" class="mobile-nav-link">
+            <i class="fas fa-star"></i> Tenets
+        </a>
+        <a href="#outreach" class="mobile-nav-link">
+            <i class="fas fa-hands-helping"></i> Outreach
+        </a>
+        <a href="#fellowship" class="mobile-nav-link">
+            <i class="fas fa-users"></i> Fellowship
+        </a>
+        <a href="#schedule" class="mobile-nav-link">
+            <i class="fas fa-calendar-alt"></i> Schedule
+        </a>
+        <a href="#community" class="mobile-nav-link">
+            <i class="fas fa-globe"></i> Community
+        </a>
+        <a href="#media" class="mobile-nav-link">
+            <i class="fas fa-photo-video"></i> Media
+        </a>
+        <a href="#contact" class="mobile-nav-link">
+            <i class="fas fa-envelope"></i> Contact
+        </a>
+        <a href="donate.html" class="mobile-donate-btn">Donate</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Spreading the Transformative Message of Salvation</h1>
+            <p>Join us in our mission to shine the light of the Word and pursue souls for the Kingdom of God.</p>
+            <div class="cta-buttons">
+                <a href="#schedule" class="btn">Join Our Service</a>
+                <a href="#outreach" class="btn btn-outline">Learn About Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamental Tenets Section -->
+    <section class="tenets" id="tenets">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fundamental Tenets</h2>
+                <p>The core principles that guide our spiritual journey and fellowship</p>
+            </div>
+            <div class="tenets-grid">
+                <div class="tenet-card">
+                    <i class="fas fa-praying-hands"></i>
+                    <h3>Prayer</h3>
+                    <p>Communication with God through prayer is the foundation of our spiritual life, fostering a deep and personal relationship with the Divine.</p>
+                </div>
+                <div class="tenet-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Worship</h3>
+                    <p>Worship is our expression of reverence and adoration for God, creating an atmosphere where His presence can dwell among us.</p>
+                </div>
+                <div class="tenet-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Word</h3>
+                    <p>The Holy Scriptures are our ultimate authority, providing guidance, wisdom, and revelation for righteous living.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values and Virtues Section -->
+    <section class="values" id="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Values and Virtues</h2>
+                <p>The moral qualities that define our character as followers of Christ</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3><i class="fas fa-heart"></i> Obedience</h3>
+                    <p>Wholehearted submission to God's commands and will as demonstrated through our actions and choices.</p>
+                    <div class="scripture">1 John 2:5-6, 1 John 5:3</div>
+                </div>
+                <div class="value-card">
+                    <h3><i class="fas fa-dove"></i> Holiness</h3>
+                    <p>Living a life set apart for God, reflecting His purity and righteousness in all we do.</p>
+                    <div class="scripture">Hebrews 12:14, 1 Peter 1:15-16</div>
+                </div>
+                <div class="value-card">
+                    <h3><i class="fas fa-hands-helping"></i> Faith and Love</h3>
+                    <p>Unwavering trust in God's promises and selfless love for others as the greatest commandments.</p>
+                    <div class="scripture">Proverbs 3:3-4, Romans 12:10</div>
+                </div>
+                <div class="value-card">
+                    <h3><i class="fas fa-shield-alt"></i> Trustworthy</h3>
+                    <p>Being reliable and faithful in our commitments, reflecting God's faithfulness in our relationships.</p>
+                    <div class="scripture">Proverbs 3:5-6</div>
+                </div>
+                <div class="value-card">
+                    <h3><i class="fas fa-balance-scale"></i> Righteousness</h3>
+                    <p>Living in accordance with God's moral standards, pursuing justice and integrity in all aspects of life.</p>
+                    <div class="scripture">2 Timothy 2:19</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outreach Endeavors Section -->
+    <section class="outreach" id="outreach">
+        <div class="container">
+            <div class="section-title">
+                <h2>Outreach Endeavors</h2>
+                <p>Our mission to spread the Gospel and transform lives through the power of God's Word</p>
+            </div>
+            <div class="outreach-cards">
+                <div class="outreach-card">
+                    <h3>The Word Manifest on the Go</h3>
+                    <p>An evangelical ministry that embodies the Great Commission, passionately pursuing souls for the Kingdom wherever they are.</p>
+                    <p>We spread the transformative message of salvation, guided by the Scriptures and the true Gospel of Christ Jesus.</p>
+                    <div class="scripture">Matthew 28:19-20</div>
+                </div>
+                <div class="outreach-card">
+                    <h3>God Lore Sessions</h3>
+                    <p>Creating environments where the truth of the Gospel comes alive, igniting hearts and minds with the transformative power of the Holy Spirit.</p>
+                    <p>These sessions reveal the eternal wisdom of God's Word in practical and powerful ways.</p>
+                    <div class="scripture">1 Corinthians 2:10</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fellowship Structure Section -->
+    <section class="fellowship" id="fellowship">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fellowship Structure</h2>
+                <p>Our community is organized to foster spiritual growth and meaningful connections</p>
+            </div>
+            <div class="fellowship-structure">
+                <div class="fellowship-item">
+                    <h3>Main Fellowship</h3>
+                    <ul>
+                        <li>Led by our Apostle</li>
+                        <li>Primary teaching source</li>
+                        <li>Spiritual covering for all groups</li>
+                        <li>Monthly joint gatherings</li>
+                    </ul>
+                </div>
+                <div class="fellowship-item">
+                    <h3>Circle Representatives</h3>
+                    <ul>
+                        <li>Each circle leads a Bible study group</li>
+                        <li>Responsible for regional coordination</li>
+                        <li>Receive teachings from main fellowship</li>
+                        <li>Facilitate monthly Kesha meetings</li>
+                    </ul>
+                </div>
+                <div class="fellowship-item">
+                    <h3>Regional Groups</h3>
+                    <ul>
+                        <li>Weekly Bible study meetings</li>
+                        <li>Flexible scheduling based on members</li>
+                        <li>Community outreach initiatives</li>
+                        <li>Mutual support and accountability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekly Schedule</h2>
+                <p>Join us for our regular gatherings and spiritual activities</p>
+            </div>
+            <div class="schedule-tabs">
+                <div class="schedule-tab active" data-tab="weekly">Weekly Activities</div>
+                <div class="schedule-tab" data-tab="monthly">Monthly Events</div>
+                <div class="schedule-tab" data-tab="special">Special Gatherings</div>
+            </div>
+            <div class="schedule-content active" id="weekly">
+                <div class="schedule-item">
+                    <div class="schedule-time">7:00 AM - 8:00 AM</div>
+                    <div class="schedule-details">
+                        <h4>Sunday Service</h4>
+                        <p>Main worship service with preaching and communion</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">3:00 AM - 4:00 AM</div>
+                    <div class="schedule-details">
+                        <h4>Daily Devotions</h4>
+                        <p>Early morning prayer and meditation on God's Word</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:00 PM - 11:00 PM</div>
+                    <div class="schedule-details">
+                        <h4>Tuesday Word Pursuit</h4>
+                        <p>Deep dive into Scripture teachings and application</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:00 PM - 11:00 PM</div>
+                    <div class="schedule-details">
+                        <h4>Monday Bible Study</h4>
+                        <p>Interactive study of biblical principles and doctrines</p>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule-content" id="monthly">
+                <div class="schedule-item">
+                    <div class="schedule-time">First Friday</div>
+                    <div class="schedule-details">
+                        <h4>Kesha Prayer Meeting</h4>
+                        <p>Overnight prayer gathering for intercession and spiritual warfare</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">Third Saturday</div>
+                    <div class="schedule-details">
+                        <h4>Joint Bible Study</h4>
+                        <p>All groups come together for unified teaching and fellowship</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">Last Sunday</div>
+                    <div class="schedule-details">
+                        <h4>Communion Service</h4>
+                        <p>Special service focusing on the Lord's Supper and reflection</p>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule-content" id="special">
+                <div class="schedule-item">
+                    <div class="schedule-time">Seasonal</div>
+                    <div class="schedule-details">
+                        <h4>Evangelistic Crusades</h4>
+                        <p>Outreach events to share the Gospel with the community</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">Quarterly</div>
+                    <div class="schedule-details">
+                        <h4>Leadership Training</h4>
+                        <p>Equipping circle representatives and group leaders</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">Annually</div>
+                    <div class="schedule-details">
+                        <h4>Anniversary Conference</h4>
+                        <p>Celebration of God's faithfulness with special speakers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Community</h2>
+                <p>Connect with fellow believers and grow together in faith</p>
+            </div>
+            <div class="community-cards">
+                <div class="community-card">
+                    <img src="images/fellowshipat apostle home.jpeg" alt="Online Fellowship">
+                    <div class="community-card-content">
+                        <h3>Online Fellowship</h3>
+                        <p>Join our virtual community for daily encouragement, prayer support, and spiritual growth.</p>
+                        <div class="community-links">
+                            <a href="https://meet.google.com/ypf-bvmf-wrg" target="_blank" title="Google Meet">
+                                <i class="fas fa-video"></i>
+                            </a>
+                            <a href="mailto:thewordmanifst@gmail.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/yourgroup" target="_blank" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <img src="images/fellowshipat apostle home.jpeg" alt="Regional Groups">
+                    <div class="community-card-content">
+                        <h3>Regional Groups</h3>
+                        <p>Find a Bible study group in your area and connect with believers in your community.</p>
+                        <div class="community-links">
+                            <a href="#" title="Find a Group">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="#" title="Start a Group">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                            <a href="#" title="Group Resources">
+                                <i class="fas fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <img src="images/ona prayer retreat.jpeg" alt="Volunteer Opportunities">
+                    <div class="community-card-content">
+                        <h3>Volunteer Opportunities</h3>
+                        <p>Use your gifts and talents to serve others and make a difference in our community.</p>
+                        <div class="community-links">
+                            <a href="#" title="Sign Up">
+                                <i class="fas fa-user-plus"></i>
+                            </a>
+                            <a href="#" title="Current Needs">
+                                <i class="fas fa-tasks"></i>
+                            </a>
+                            <a href="#" title="Impact Stories">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Gallery Section -->
+    <section class="media" id="media">
+        <div class="container">
+            <div class="section-title">
+                <h2>Media Gallery</h2>
+                <p>Watch our latest sermons, testimonies, and event highlights</p>
+            </div>
+            <div class="media-grid">
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/quvit0BG_Mw?si=aHBsN7O5Yu2aL7jE" title="Sunday Service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Sunday Service Highlights</h3>
+                        <p>Experience the power of worship and the Word in our latest Sunday service.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/00tH6sRpRBY?si=vtQCZMjdwawsBWGH" title="Bible Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Monday Bible Study</h3>
+                        <p>Deepen your understanding of Scripture with our interactive Bible study sessions.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/-Uv5-Ppo9eE?si=zBFgBGw5trJmkMVn" title="Testimonies" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Life-Changing Testimonies</h3>
+                        <p>Hear powerful stories of transformation and God's faithfulness in our community.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4hhPut4t3Sc?si=A_VR7I2xNd8WfCin" title="Live Service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Live Worship Service</h3>
+                        <p>Join us for our live worship service and experience the presence of God.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/qMJKwQZfp40?si=sjagLPI9B8HtOumz" title="Teaching Series" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Transformative Teaching Series</h3>
+                        <p>Discover profound biblical truths that will transform your walk with God.</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/COkEFQLdz1U?si=WL4gPgYV_1rIQ9u8" title="Youth Conference" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-content">
+                        <h3>Pastor Ng'ang'a in Rhema Feast</h3>
+                        <p>Empowering the next generation to live boldly for Christ.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community Section -->
+    <section class="join-community" id="join-community">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Growing Community</h2>
+                <p>Connect with us through various platforms and be part of our spiritual family</p>
+            </div>
+            <div class="join-community-cards">
+                <div class="join-community-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Community</h3>
+                    <p>Join our WhatsApp group for daily devotionals, prayer requests, and fellowship with believers.</p>
+                    <a href="https://chat.whatsapp.com/yourgroup" target="_blank" class="btn">Join Now</a>
+                </div>
+                <div class="join-community-card">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube Channel</h3>
+                    <p>Subscribe to our YouTube channel for sermons, teachings, and inspirational content.</p>
+                    <a href="https://www.youtube.com/@TheWordManifest" target="_blank" class="btn">Subscribe</a>
+                </div>
+                <div class="join-community-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates, events, and spiritual resources delivered to your inbox.</p>
+                    <a href="mailto:thewordmanifst@gmail.com" class="btn">Subscribe</a>
+                </div>
+                <div class="join-community-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Online Meetings</h3>
+                    <p>Join our virtual services and Bible studies through Google Meet from anywhere in the world.</p>
+                    <a href="https://meet.google.com/ypf-bvmf-wrg" target="_blank" class="btn">Join Meeting</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you and answer any questions you may have</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Nairobi, Kenya</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>0111 229940</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>thewordmanifst@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-video"></i>
+                        <p>Online Meeting: <a href="https://meet.google.com/ypf-bvmf-wrg" target="_blank">meet.google.com/ypf-bvmf-wrg</a></p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The Word Manifest</h3>
+                    <p>Spreading the transformative message of salvation and pursuing souls for the Kingdom of God.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#tenets">Fundamental Tenets</a></li>
+                        <li><a href="#outreach">Outreach Endeavors</a></li>
+                        <li><a href="#fellowship">Fellowship Structure</a></li>
+                        <li><a href="#schedule">Service Schedule</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Sermon Archives</a></li>
+                        <li><a href="#">Bible Study Materials</a></li>
+                        <li><a href="#">Prayer Requests</a></li>
+                        <li><a href="#">Testimonies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> 0111 229940</li>
+                        <li><i class="fas fa-envelope"></i> thewordmanifst@gmail.com</li>
+                        <li><i class="fas fa-video"></i> <a href="https://meet.google.com/ypf-bvmf-wrg" target="_blank" style="color: #ccc;">Online Meeting</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 The Word Manifest Fellowship. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-nav').classList.add('active');
+        });
+
+        // Close mobile navigation
+        document.querySelector('.mobile-nav-close').addEventListener('click', function() {
+            document.querySelector('.mobile-nav').classList.remove('active');
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.mobile-nav').classList.remove('active');
+            });
+        });
+
+        // Schedule Tabs
+        document.querySelectorAll('.schedule-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.schedule-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.mobile-nav').classList.remove('active');
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            }
+        });
+
+        // Hero Parallax Effect
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const hero = document.querySelector('.hero');
+            const opacity = 1 - scrollPosition / 600;
+            
+            if (hero) {
+                hero.style.opacity = opacity > 0 ? opacity : 0;
+            }
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the form data to a server
+            // For this example, we'll just show a success message
+            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
